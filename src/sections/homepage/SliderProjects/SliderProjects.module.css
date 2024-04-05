@@ -1,0 +1,87 @@
+.sliderContainer{
+    position: relative;
+}
+
+.slide{
+    color: white;
+    position: relative;
+    padding: 60px 30px 20px 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.projectTitle{
+    font-size: 35vw;
+    pointer-events: none;
+    line-height: 1em;
+}
+
+.content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.cover{
+    width: 22vw;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transform: scale(0);
+    transition: .5s;
+    margin-top: 2%;
+}
+
+.stack{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 3;
+    position: relative;
+}
+
+.stack span{
+    display: block;
+}
+
+.info{
+    text-align: left;
+}
+
+.slide:hover .cover{
+    transform: scale(1);
+}
+
+.sliderNav{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    z-index: 3;
+}
+
+.sliderNav button{
+    background: none;
+    border: none;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.sliderNav button img{
+    width: 1em;
+}
+
+.sliderNav .next img{
+    transform: rotate(180deg);
+}

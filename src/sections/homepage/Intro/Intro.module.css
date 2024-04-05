@@ -1,0 +1,23 @@
+.title{
+    font-size: 24vw;
+    margin: 0;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.container{
+    text-align: center;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.stack{
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 7.5%;
+    padding-right: 1%;
+    margin-top: -2%;
+}
