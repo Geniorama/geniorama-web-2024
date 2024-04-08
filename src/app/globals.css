@@ -1,6 +1,15 @@
 @import url("https://fonts.cdnfonts.com/css/qanelas");
 @import url('https://fonts.cdnfonts.com/css/druk-trial');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root{
+  --secondary-color: #e41279;
+}
+
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -15,3 +24,4 @@ body {
 h1, h2{
     font-family: 'Druk Cond Trial', sans-serif;
 }
+
