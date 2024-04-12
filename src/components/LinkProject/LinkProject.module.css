@@ -1,0 +1,43 @@
+.slash{
+    opacity: 0;
+    position: relative;
+    left: -30px;
+    transition: .5s;
+    color: var(--secondary-color);
+}
+
+.name{
+    font-size: 15vw;
+    font-family: 'Druk Cond Trial', sans-serif;
+    transition: .3s;
+    line-height: 1em;
+    left: -60px;
+    position: relative;
+}
+
+.text{
+    white-space: nowrap;
+}
+
+.description{
+    opacity: 0;
+    position: relative;
+    right: -30px;
+    transition: .5s;
+    font-size: 12px;
+}
+
+.link:hover .name{
+    color: var(--secondary-color);
+    left: 0;
+}
+
+.link:hover .slash{
+    opacity: 1;
+    left: -0px;
+}
+
+.link:hover .description{
+    opacity: 1;
+    right: -0px;
+}
