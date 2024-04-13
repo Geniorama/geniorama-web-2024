@@ -29,7 +29,7 @@ export default function SliderProjects() {
             <div className={styles.stack}>
               <div className={styles.info}>
                 <span>New York</span>
-                <Link href="#">See project</Link>
+                <Link href="#" className="underline">See project</Link>
               </div>
             </div>
           </div>

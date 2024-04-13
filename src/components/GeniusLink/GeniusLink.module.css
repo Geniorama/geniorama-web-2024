@@ -1,6 +1,34 @@
 .link{
     text-decoration: none;
+    transition: .3s;
 }
 .text{
     text-decoration: underline;
+}
+
+@media screen and (min-width: 900px) {
+    .symbol{
+        opacity: 0;
+        transition: .3s;
+        display: inline-block;
+    }
+
+    .symbol:first-child{
+        margin-right: 5px;
+        transform: translateX(-10px);
+    }
+
+    .symbol:last-child{
+        margin-left: 5px;
+        transform: translateX(10px);
+    }
+
+    .link:hover, .link.active{
+        opacity: .6;
+    }
+
+    .link:hover .symbol, .link.active .symbol{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
