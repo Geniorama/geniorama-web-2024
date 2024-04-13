@@ -1,5 +1,6 @@
 import LinkProjectBasic from "@/components/LinkProject/LinkProjectBasic";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
+import GeniusText from "@/components/GeniusText/GeniusText";
 
 const projects = [
   {
@@ -42,9 +43,11 @@ export default function Work() {
   return (
     <section className="py-28">
       <div className="container">
-        <h4 style={{ fontSize: "61px" }} className="text-white">
-          Work
-        </h4>
+        <div className="text-white font-light" style={{fontSize: '3.7vw'}}>
+          <GeniusText component={'h4'}>
+            Work
+          </GeniusText>
+        </div>
         <div>
           {/* Item */}
           {projects &&
