@@ -6,7 +6,6 @@
 }
 
 .container{
-    text-align: center;
     padding: 30px 10px;
     box-sizing: border-box;
     color: white;
@@ -20,4 +19,24 @@
     padding-left: 7.5%;
     padding-right: 1%;
     margin-top: -2%;
+}
+
+@media screen and (max-width: 640px) {
+    .title{
+        text-align: left;
+        font-size: 39vw;
+        line-height: .85em;
+    }
+
+    .title span{
+        margin-left: 10%;
+    }
+
+    .stack{
+        flex-direction: column;
+        padding: 2%;
+        align-items: flex-start;
+        margin-left: 8%;
+        margin-top: 5px;
+    }
 }

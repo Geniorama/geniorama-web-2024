@@ -5,6 +5,7 @@ import LogoLight from "./../../../public/assets/images/logo-geniorama-blanco.svg
 import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import { usePathname } from "next/navigation";
+import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
 
 const menuItems = [
   {
@@ -21,10 +22,6 @@ const menuItems = [
   },
 ];
 
-// type Props = {
-//   router: ReactElement<any>;
-// }
-
 export default function Header() {
   const pathname = usePathname();
 
@@ -39,7 +36,11 @@ export default function Header() {
           />
         </Link>
       
-        <div className={styles.menus}>
+        {/* Toggle menu mobile */}
+        <div className="md:hidden text-white">
+          <ButtonMenuToggle />
+        </div>
+        <div className={`${styles.menus} hidden md:flex`}>
           <ul className={styles.menuList}>
             {menuItems.map((item, i) => {
               const {name, path} = item

@@ -85,3 +85,37 @@
 .sliderNav .next img{
     transform: rotate(180deg);
 }
+
+@media screen and (max-width: 640px){
+    .projectTitle{
+        font-size: 32vw;
+        margin-bottom: 100px;
+    }
+    
+    .sliderNav{
+        bottom: unset;
+        top: 10%;
+    }
+
+    .sliderContainer{
+        padding-top: 20%;
+    }
+
+    .slide{
+        padding: 5%;
+    }
+
+    .cover{
+        transform: scale(1);
+        width: 170px;
+    }
+
+    .content{
+        top: unset;
+        bottom: 0;
+        justify-content: flex-end;
+        padding: 5%;
+        align-items: flex-end;
+    }
+    
+}

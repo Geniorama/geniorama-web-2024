@@ -1,0 +1,15 @@
+.line{
+    display: block;
+    background: white;
+    height: 3px;
+    width: 100%;
+    margin: 20% 0px;
+}
+
+.button{
+    display: block;
+    width: 30px !important;
+    height: 30px !important;
+    /* padding-right: 10px; */
+    box-sizing: border-box;
+}

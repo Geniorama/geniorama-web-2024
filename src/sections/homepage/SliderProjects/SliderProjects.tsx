@@ -40,11 +40,11 @@ export default function SliderProjects() {
       </Swiper>
 
       <div className={styles.sliderNav}>
-        <button className={`${styles.prev}`}>
+        <button className={`${styles.prev} ${styles.arrow}`}>
           <img src={LeftArrow.src} alt="" />
         </button>
 
-        <button className={`${styles.next}`}>
+        <button className={`${styles.next} ${styles.arrow}`}>
           <img src={LeftArrow.src} alt="" />
         </button>
       </div>

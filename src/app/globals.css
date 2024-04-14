@@ -21,6 +21,10 @@ body {
   background: black;
 }
 
+body, html{
+  overflow-x: hidden;
+}
+
 h1, h2{
     font-family: 'Druk Cond Trial', sans-serif;
 }
