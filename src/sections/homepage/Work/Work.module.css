@@ -1,0 +1,9 @@
+.seeMore{
+    font-size: 34px;
+}
+
+@media screen and (max-width: 640px){
+    .seeMore{
+        font-size: 15px;
+    }
+}

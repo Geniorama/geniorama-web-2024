@@ -1,6 +1,7 @@
 import LinkProjectBasic from "@/components/LinkProject/LinkProjectBasic";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import GeniusText from "@/components/GeniusText/GeniusText";
+import styles from "./Work.module.css";
 
 const projects = [
   {
@@ -41,7 +42,7 @@ const projects = [
 
 export default function Work() {
   return (
-    <section className="py-28">
+    <section className="py-16 md:py-28 px-3 md:px-0">
       <div className="container">
         <div className="text-white font-light" style={{fontSize: '3.7vw'}}>
           <GeniusText component={'h4'}>
@@ -53,7 +54,7 @@ export default function Work() {
           {projects &&
             projects.map((item, i) => {
               return (
-                <div key={i} className={i == 0 ? 'pl-32': i == 2 ? 'pl-80' : i == 3 ? 'pr-52' : ''}>
+                <div key={i} className={i == 0 ? 'md:pl-32': i == 2 ? 'md:pl-80' : i == 3 ? 'md:pr-52' : ''}>
                   <LinkProjectBasic
                     name={item.name}
                     description={item.description}
@@ -65,7 +66,7 @@ export default function Work() {
               );
             })}
 
-            <div className="text-right" style={{fontSize: '34px'}}>
+            <div className={`mt-5 text-right ${styles.seeMore}`}>
               <GeniusLink>See more</GeniusLink>
             </div>
         </div>

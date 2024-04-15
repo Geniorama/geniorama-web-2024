@@ -16,7 +16,7 @@ export default function LinkProjectBasic(props: ProjectProps) {
 
   return (
     <div>
-        <Link className={`text-white flex items-center ${spacing ? spacing : 'gap-x-80'} ${styles.link} ${reverse && 'flex-row-reverse'}`} href={href ? href : '#'}>
+        <Link className={`text-white md:flex items-center ${spacing ? spacing : 'gap-x-80'} ${styles.link} ${reverse && 'flex-row-reverse'}`} href={href ? href : '#'}>
             <div className={`uppercase ${styles.name}`}>
                 <span className={styles.slash}>/</span>
                 <span className={styles.text}>{name ? name : 'Name'}</span>

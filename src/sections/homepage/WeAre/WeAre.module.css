@@ -3,3 +3,22 @@
     font-size: 16vw;
     line-height: .8em;
 }
+
+.title{
+    font-size: 1.6vw;
+}
+
+@media screen and (max-width: 640px){
+    .list li{
+        font-size: 10px;
+    }
+
+    .label{
+        font-size: 19vw;
+    }
+
+    .title{
+        font-size: 12px;
+    }
+}
+
