@@ -9,8 +9,8 @@ import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
 
 const menuItems = [
   {
-    name: 'Home',
-    path: '/',
+    name: 'Work',
+    path: '/work',
   },
   {
     name: 'About',
@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <header className={styles.container}>
       <nav className={styles.navigation}>
-        <Link href={"#"}>
+        <Link href={"/"}>
           <img
             className={styles.brand}
             src={LogoLight.src}

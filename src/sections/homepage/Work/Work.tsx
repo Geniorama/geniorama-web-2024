@@ -3,7 +3,7 @@ import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import GeniusText from "@/components/GeniusText/GeniusText";
 import styles from "./Work.module.css";
 
-const projects = [
+export const projects = [
   {
     name: "Gymdoor",
     description:
@@ -67,7 +67,7 @@ export default function Work() {
             })}
 
             <div className={`mt-5 text-right ${styles.seeMore}`}>
-              <GeniusLink>See more</GeniusLink>
+              <GeniusLink href="/work">See more</GeniusLink>
             </div>
         </div>
       </div>

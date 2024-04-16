@@ -43,6 +43,27 @@
     right: -0px;
 }
 
+.cover{
+    border: 15px solid var(--secondary-color);
+    border-width: 0px 15px;
+    transform: skew(-10deg, -10deg) rotate(10deg);
+    overflow: hidden;
+    transition: .5s;
+    width: 0px;
+    height: 250px;
+    opacity: 0;
+}
+
+.cover img{
+    transform: skew(10deg, 10deg) rotate(-10deg) scale(1.8);
+    width: 100%;
+}
+
+.link:hover .cover{
+    width: 300px;
+    opacity: 1;
+}
+
 @media screen and (max-width: 640px){
     .description{
         right: unset;
