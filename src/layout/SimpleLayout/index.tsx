@@ -1,20 +1,15 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Intro from "@/sections/homepage/Intro/Intro";
+import Header from "@/layout/SimpleLayout/Header/Header";
+import Footer from "@/layout/SimpleLayout/Footer/Footer";
+import React from "react";
 
-export default function SimpleLayout({ children }: Readonly<{
-    children: React.ReactNode;
-  }>) {
+export default function SimpleLayout({ children }: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
-      <div style={{
-        background: 'radial-gradient(circle, rgba(240,18,126,1) 0%, rgba(10,27,110,1) 52%, rgba(0,0,0,1) 100%)',
-      }}>
-        <Intro />
-        <Header />
-      </div>
-        {children}
+    <React.Fragment>
+      <Header />
+      {children}
       <Footer />
-    </>
+    </React.Fragment>
   );
 }

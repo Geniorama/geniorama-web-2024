@@ -1,14 +1,18 @@
+"use client";
+
 import styles from "./Footer.module.css";
-import LogoGenioramaDark from '../../../public/assets/images/logo-geniorama-negro.svg';
+import LogoGenioramaDark from '../../../../public/assets/images/logo-geniorama-negro.svg';
 import NewsletterForm from "@/components/NewsletterForm/NewsletterForm";
+import { useRouter } from "next/navigation";
 
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <footer className={styles.footer}>
       {/* NAVIGATION */}
       <ul className={`${styles.menu} columns-3 gap-0`}>
-        <li className={styles.menuItem}>WORK</li>
+        <li onClick={() => router.push('/work')} className={styles.menuItem}>WORK</li>
         <li className={styles.menuItem}>ABOUT</li>
         <li className={styles.menuItem}>CONTACT</li>
       </ul>
@@ -52,7 +56,7 @@ export default function Footer() {
         <hr className="w-full mt-8 md:hidden border-black"/>
 
         {/* LOGO */}
-        <img className="w-full py-5 md:mt-32" src={LogoGenioramaDark.src} alt="" />
+        <img className="w-full py-5 md:mt-32 cursor-pointer" onClick={() => router.push("/")} src={LogoGenioramaDark.src} alt="" />
 
 
         {/* Copyright */}

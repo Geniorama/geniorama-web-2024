@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import Link from "next/link";
-import LogoLight from "./../../../public/assets/images/logo-geniorama-blanco.svg";
+import LogoLight from "../../../../public/assets/images/logo-geniorama-blanco.svg";
 import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import { usePathname } from "next/navigation";
@@ -9,16 +9,16 @@ import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
 
 const menuItems = [
   {
-    name: 'Work',
-    path: '/work',
+    name: "Work",
+    path: "/work",
   },
   {
-    name: 'About',
-    path: '/about',
+    name: "About",
+    path: "/about",
   },
   {
-    name: 'Contact',
-    path: '/contact',
+    name: "Contact",
+    path: "/contact",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function Header() {
             alt="Logo geniorama"
           />
         </Link>
-      
+
         {/* Toggle menu mobile */}
         <div className="md:hidden text-white">
           <ButtonMenuToggle />
@@ -43,14 +43,27 @@ export default function Header() {
         <div className={`${styles.menus} hidden md:flex`}>
           <ul className={styles.menuList}>
             {menuItems.map((item, i) => {
-              const {name, path} = item
-              return <li key={i}><GeniusLink active={pathname == path ? true : false} href={path}>{name}</GeniusLink></li>
+              const { name, path } = item;
+              return (
+                <li key={i}>
+                  <GeniusLink
+                    active={pathname == path ? true : false}
+                    href={path}
+                  >
+                    {name}
+                  </GeniusLink>
+                </li>
+              );
             })}
           </ul>
 
           <ul className={`${styles.menuList} ${styles.menuLang}`}>
-            <li><GeniusLink active={true}>En</GeniusLink></li>
-            <li><GeniusLink>Es</GeniusLink></li>
+            <li>
+              <GeniusLink active={true}>En</GeniusLink>
+            </li>
+            <li>
+              <GeniusLink>Es</GeniusLink>
+            </li>
           </ul>
         </div>
       </nav>

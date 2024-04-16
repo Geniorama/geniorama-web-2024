@@ -13,6 +13,7 @@
     font-size: 7vw;
     box-sizing: border-box;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .menuItem:nth-child(2){

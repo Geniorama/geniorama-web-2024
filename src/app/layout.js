@@ -1,12 +1,14 @@
-import SimpleLayout from "@/layout/SimpleLayout";
-import './globals.css';
+import LayoutWithIntro from "@/layout/LayoutWithIntro";
+import "@/app/globals.css";
 
 export default function RootLayout({ children }) {
   return (
-     <html lang="es">
+    <html lang="en">
       <body>
-        <SimpleLayout>{children}</SimpleLayout>
+        <LayoutWithIntro>
+          {children}
+        </LayoutWithIntro>
       </body>
-     </html>
+    </html>
   );
 }
