@@ -6,7 +6,7 @@ export default function Intro() {
     <div className={styles.container}>
         <h1 className={styles.title}>/Geniuses <span>of WEB</span></h1>
         <div className={`${styles.stack}`}>
-          <p>Software development company</p>
+          <p>Web development company</p>
           <GeniusLink href='#'>
             See our work
           </GeniusLink>

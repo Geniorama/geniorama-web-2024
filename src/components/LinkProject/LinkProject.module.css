@@ -25,6 +25,7 @@
     right: -30px;
     transition: .5s;
     font-size: 12px;
+    max-width: 500px;
 }
 
 .link:hover .name{

@@ -1,6 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import styles from "./SliderProjects.module.css";
 import CoverProject from "./../../../../public/assets/images/mockup-pc.jpg";
@@ -11,10 +12,12 @@ export default function SliderProjects() {
   return (
     <div className={styles.sliderContainer}>
       <Swiper
+        modules={[Navigation]}
         spaceBetween={50}
         slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
+        navigation={{ nextEl: ".arrow-next", prevEl: ".arrow-prev" }}
       >
         <SwiperSlide>
           <div className={styles.slide}>
@@ -29,7 +32,9 @@ export default function SliderProjects() {
             <div className={styles.stack}>
               <div className={styles.info}>
                 <span>New York</span>
-                <Link href="#" className="underline">See project</Link>
+                <Link href="#" className="underline">
+                  See project
+                </Link>
               </div>
             </div>
           </div>
@@ -40,11 +45,11 @@ export default function SliderProjects() {
       </Swiper>
 
       <div className={styles.sliderNav}>
-        <button className={`${styles.prev} ${styles.arrow}`}>
+        <button className={`${styles.prev} ${styles.arrow} arrow-prev`}>
           <img src={LeftArrow.src} alt="" />
         </button>
 
-        <button className={`${styles.next} ${styles.arrow}`}>
+        <button className={`${styles.next} ${styles.arrow} arrow-next`}>
           <img src={LeftArrow.src} alt="" />
         </button>
       </div>

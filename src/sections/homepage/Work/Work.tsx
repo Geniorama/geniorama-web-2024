@@ -33,7 +33,7 @@ const projects = [
   },
 
   {
-    name: "Skyline",
+    name: "Loni",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aut aliquam quia enim quam, nam est! Deleniti, temporibus iusto! Facere error harum architecto vitae qui aspernatur! Molestiae dolores ea fugit!",
     link: "#",

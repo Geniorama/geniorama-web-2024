@@ -16,6 +16,10 @@
     gap: 30px;
 }
 
+.menuLang{
+    gap: 5px;
+}
+
 .menuList a{
     text-decoration: none;
     color: white;

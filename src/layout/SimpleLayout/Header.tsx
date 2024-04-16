@@ -48,9 +48,9 @@ export default function Header() {
             })}
           </ul>
 
-          <ul className={styles.menuList}>
-            <li><Link href={"#"}>En</Link></li>
-            <li><Link href={"#"}>Es</Link></li>
+          <ul className={`${styles.menuList} ${styles.menuLang}`}>
+            <li><GeniusLink active={true}>En</GeniusLink></li>
+            <li><GeniusLink>Es</GeniusLink></li>
           </ul>
         </div>
       </nav>
