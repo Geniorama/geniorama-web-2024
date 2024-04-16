@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       {/* NAVIGATION */}
-      <ul className={`${styles.menu} md:columns-3 gap-0`}>
+      <ul className={`${styles.menu} columns-3 gap-0`}>
         <li className={styles.menuItem}>WORK</li>
         <li className={styles.menuItem}>ABOUT</li>
         <li className={styles.menuItem}>CONTACT</li>

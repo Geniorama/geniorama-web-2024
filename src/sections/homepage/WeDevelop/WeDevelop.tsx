@@ -4,7 +4,7 @@ import Isologo from '../../../../public/assets/images/Isologo Geniorama - otros 
 
 export default function WeDevelop() {
   return (
-    <section className="pt-28 pb-2 md:pb-64 lg:pb-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pb-48 relative">
+    <section className="pt-28 pb-1 md:pb-64 lg:pb-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pb-48 relative">
       <img className={`${styles.isologo} absolute md:hidden`} src={Isologo.src} alt="" />
       <div className="container relative pt-16 pb-16 md:pb-20">
         <div className="px-5 md:px-0 md:flex items-center justify-between relative z-10">
