@@ -1,10 +1,18 @@
 import styles from './WeAre.module.css';
 import GeniusText from '@/components/GeniusText/GeniusText';
+import BgLinear from '../../../../public/assets/images/bg-linearRecurso 1.svg';
 
 export default function WeAre() {
   return (
-    <section className="text-white pb-24 md:py-44 px-3 md:px-0">
-        <div className="container">
+    <section 
+        style={{
+            backgroundImage: `url('${BgLinear.src}')`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "bottom right",
+        }}
+        className={`relative text-white pb-24 md:py-44 px-3 md:px-0 ${styles.layerOpacity}`}>
+        <div className="container relative">
             <div className={`${styles.title} mb-5 font-light`}>
                 <GeniusText>
                     We are geniuses of web

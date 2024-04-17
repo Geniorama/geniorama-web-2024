@@ -5,6 +5,7 @@ import Header from "@/layout/SimpleLayout/Header/Header";
 import Footer from "@/layout/SimpleLayout/Footer/Footer";
 import Intro from "@/sections/homepage/Intro/Intro";
 import { usePathname } from "next/navigation";
+import BgLinear from "../../../public/assets/images/bg-linearRecurso 1.svg";
 
 export default function LayoutWithIntro({
   children,
@@ -12,9 +13,18 @@ export default function LayoutWithIntro({
   children: React.ReactNode;
 }) {
   const pathName = usePathname();
+  console.log(BgLinear.src);
   return (
     <React.Fragment>
-      <div style={{background: 'radial-gradient(circle, rgba(0,10,61,1) 0%, rgba(253,19,131,1) 100%)'}}>
+      <div
+        className="wraper-intro"
+        style={{
+          backgroundImage: `url('${BgLinear.src}')`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom center",
+        }}
+      >
         {pathName == "/" && <Intro />}
         <Header />
       </div>
