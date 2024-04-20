@@ -13,7 +13,7 @@ export default function Footer() {
       {/* NAVIGATION */}
       <ul className={`${styles.menu} columns-3 gap-0`}>
         <li onClick={() => router.push('/work')} className={styles.menuItem}>WORK</li>
-        <li className={styles.menuItem}>ABOUT</li>
+        <li onClick={() => router.push('/about')} className={styles.menuItem}>ABOUT</li>
         <li className={styles.menuItem}>CONTACT</li>
       </ul>
 

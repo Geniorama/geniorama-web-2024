@@ -1,7 +1,5 @@
-import React from 'react'
+import AboutPage from "@/views/about/About"
 
 export default function page() {
-  return (
-    <div>page</div>
-  )
+  return <AboutPage />
 }

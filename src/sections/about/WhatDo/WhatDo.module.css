@@ -1,0 +1,15 @@
+.copy{
+    font-size: 15vw;
+    line-height: .8em;
+}
+
+.description{
+    font-size: 16px;
+    line-height: 1.2em;
+}
+
+.isologo{
+    width: 12vw;
+    right: -6vw;
+    top: -6vw;
+}

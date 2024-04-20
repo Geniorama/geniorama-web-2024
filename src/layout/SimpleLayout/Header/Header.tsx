@@ -26,7 +26,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className={styles.container}>
+    <header className={`${styles.container} relative z-50`}>
       <nav className={styles.navigation}>
         <Link href={"/"}>
           <img
