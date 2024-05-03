@@ -56,7 +56,7 @@ export default function OurTeam() {
           </p>
         </div>
 
-        <div className="text-white p-5">
+        <div className="text-white mt-20 md:mt-0 md:p-5">
           {/* FOUNDERS */}
           <div className="md:flex gap-10 justify-center items-center">
             <div className={`${styles.cardTeam} mb-10 md:w-2/4`}>
