@@ -6,8 +6,8 @@ export default function WhyUs() {
   return (
     <section 
         style={{backgroundImage: `url('${BgLinear.src}')`}} 
-        className="text-white px-3 py-40 bg-cover bg-right-bottom">
-      <div className="container">
+        className={`text-white px-3 py-40 bg-cover bg-right-bottom relative ${homeStyles.layerOpacity}`}>
+      <div className="container relative">
         <p className={`${homeStyles.title} mb-5 font-light`}>
           Among so many companies you will wonder…
         </p>

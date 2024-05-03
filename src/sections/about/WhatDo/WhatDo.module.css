@@ -13,3 +13,14 @@
     right: -6vw;
     top: -6vw;
 }
+
+@media screen and (max-width: 480px) {
+    .copy{
+        font-size: 45vw;
+        line-height: 1em;
+    }
+
+    .description{
+        font-size: 13px;
+    }
+}
