@@ -32,3 +32,17 @@
 .description{
     font-size: 1.3vw;
 }
+
+@media screen and (max-width: 480px) {
+    .title{
+        font-size: 13vw;
+    }
+    .title span:first-child{
+        font-size: 14vw;
+    }
+
+    .description{
+        font-size: 13px;
+        text-align: left;
+    }
+}

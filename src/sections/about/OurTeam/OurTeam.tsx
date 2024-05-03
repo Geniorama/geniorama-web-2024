@@ -41,7 +41,7 @@ const team = [
 
 export default function OurTeam() {
   return (
-    <section className="py-24">
+    <section className="py-24 px-4">
       <div className="container">
         <div className="text-white text-center">
           <h2 className={`${styles.title}`}>
@@ -93,7 +93,7 @@ export default function OurTeam() {
           </div>
 
           {/* TEAM */}
-          <div className="mt-40">
+          <div className="mt-20 md:mt-40">
             <span>
               <GeniusText>Our Team</GeniusText>
             </span>
