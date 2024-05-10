@@ -4,6 +4,7 @@ import styles from "./Footer.module.css";
 import LogoGenioramaDark from '../../../../public/assets/images/logo-geniorama-negro.svg';
 import NewsletterForm from "@/components/NewsletterForm/NewsletterForm";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 export default function Footer() {
@@ -14,7 +15,7 @@ export default function Footer() {
       <ul className={`${styles.menu} columns-3 gap-0`}>
         <li onClick={() => router.push('/work')} className={styles.menuItem}>WORK</li>
         <li onClick={() => router.push('/about')} className={styles.menuItem}>ABOUT</li>
-        <li className={styles.menuItem}>CONTACT</li>
+        <li onClick={() => router.push('/contact')} className={styles.menuItem}>CONTACT</li>
       </ul>
 
       {/* INFO CONTACT */}
@@ -33,7 +34,9 @@ export default function Footer() {
             <div className={`${styles.widget} text-left md:text-right`}>
               <h5 className={styles.wdgTitle}>Help</h5>
               <ul>
-                <li><a href="#">Contact us</a></li>
+                <li>
+                  <Link href={'/contact'}>Contact us</Link>
+                </li>
               </ul>
             </div>
             <div className={`${styles.widget} text-center md:text-right`}>
@@ -46,8 +49,8 @@ export default function Footer() {
             <div className={`${styles.widget} text-right`}>
               <h5 className={styles.wdgTitle}>Follow Us</h5>
               <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Linked In</a></li>
+                <li><a href="https://www.instagram.com/geniorama/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/company/geniorama" target="_blank">Linked In</a></li>
               </ul>
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function HeadingPage(props:HeadingPageProps) {
         <h1 className={`${styles.title} text-white`}>{props.title}</h1>
         
         {props.cover && (
-            <div className='absolute top-0 left-0 flex justify-center items-center h-full'>
+            <div className='absolute top-0 left-0 flex justify-center items-center h-3/4 md:h-full'>
                 <img 
                     src={props.cover} 
                     alt={props.title} 

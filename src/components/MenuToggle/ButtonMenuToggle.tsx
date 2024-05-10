@@ -1,8 +1,12 @@
 import styles from './ButtonMenuToggle.module.css';
 
-export default function ButtonMenuToggle() {
+interface ButtonMenuToggleProps {
+  onClick?: () => void;
+}
+
+export default function ButtonMenuToggle(props:ButtonMenuToggleProps) {
   return (
-    <button className={`${styles.button}`}>
+    <button onClick={props.onClick} className={`${styles.button}`}>
         <span className={`${styles.line}`}></span>
         <span className={`${styles.line}`}></span>
         <span className={`${styles.line}`}></span>

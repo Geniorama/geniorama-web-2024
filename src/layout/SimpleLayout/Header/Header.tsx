@@ -6,6 +6,7 @@ import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import { usePathname } from "next/navigation";
 import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
+import { useEffect, useState } from "react";
 
 const menuItems = [
   {
@@ -25,8 +26,25 @@ const menuItems = [
 export default function Header() {
   const pathname = usePathname();
 
+  useEffect(() => {
+    const header = document.getElementById('main-head');
+    if(header){
+      const toTop = header.offsetTop
+      window.onscroll = function(){
+        const scrollY = window.scrollY
+        if(scrollY > toTop){
+          header.classList.add('fixed', 'w-full', 'bg-black', 'border-b', 'border-stone-700')
+          header.classList.remove('relative')
+        } else {
+          header.classList.remove('fixed', 'bg-black', 'border-b')
+          header.classList.add('relative')
+        }
+      }
+    }
+  },[pathname])
+
   return (
-    <header className={`${styles.container} relative z-50`}>
+    <header id="main-head" className={`${styles.container} relative z-50 top-0 left-0`}>
       <nav className={styles.navigation}>
         <Link href={"/"}>
           <img
@@ -40,6 +58,9 @@ export default function Header() {
         <div className="md:hidden text-white">
           <ButtonMenuToggle />
         </div>
+
+
+        {/* Menu Desktop */}
         <div className={`${styles.menus} hidden md:flex`}>
           <ul className={styles.menuList}>
             {menuItems.map((item, i) => {
