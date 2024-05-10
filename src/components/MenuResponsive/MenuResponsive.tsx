@@ -33,7 +33,11 @@ export const ButtonClose = styled.button`
     }
 `;
 
-export default function MenuResponsive({handleClose}) {
+interface MenuResponsiveProps{
+  handleClose: any;
+}
+
+export default function MenuResponsive(props:MenuResponsiveProps) {
   return (
     <div className="text-white p-3 relative">
       <div className="font-light text-lg">
@@ -45,7 +49,7 @@ export default function MenuResponsive({handleClose}) {
         </span>
       </div>
     
-      <ButtonClose onClick={handleClose}>
+      <ButtonClose onClick={props.handleClose}>
         <span></span>
         <span></span>
       </ButtonClose>
