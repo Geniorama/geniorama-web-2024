@@ -6,27 +6,32 @@ import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import { usePathname } from "next/navigation";
 import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
-
-const menuItems = [
-  {
-    name: "Work",
-    path: "/work",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
-];
+import { useState } from "react";
+import MenuResponsive from "@/components/MenuResponsive/MenuResponsive";
+import bgMenuMobile from "../../../../public/assets/images/bg-linearRecurso 1.svg";
+import menuPrincipal from "@/MenuItems/menuPrincipal";
 
 export default function Header() {
+  const [openMenu, setOpenMenu] = useState(false)
   const pathname = usePathname();
+
+  const handleToggleMenu = () =>{
+    setOpenMenu(!openMenu);
+  }
+
+  const handleCloseMenu = () =>{
+    setOpenMenu(false)
+  }
 
   return (
     <header className={`${styles.container} relative z-50`}>
+      {openMenu && (
+        <div 
+          style={{backgroundImage: `url('${bgMenuMobile.src}')`}}
+          className="fixed h-screen w-screen top-0 left-0 bg-cover ">
+          <MenuResponsive handleClose={handleCloseMenu} />
+        </div>
+      )}
       <nav className={styles.navigation}>
         <Link href={"/"}>
           <img
@@ -38,11 +43,11 @@ export default function Header() {
 
         {/* Toggle menu mobile */}
         <div className="md:hidden text-white">
-          <ButtonMenuToggle />
+          <ButtonMenuToggle onClick={handleToggleMenu} />
         </div>
         <div className={`${styles.menus} hidden md:flex`}>
           <ul className={styles.menuList}>
-            {menuItems.map((item, i) => {
+            {menuPrincipal.map((item, i) => {
               const { name, path } = item;
               return (
                 <li key={i}>
