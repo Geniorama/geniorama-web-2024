@@ -1,5 +1,9 @@
 .sliderContainer{
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide{
@@ -11,9 +15,10 @@
 }
 
 .projectTitle{
-    font-size: 35vw;
+    font-size: calc(400px - 2ch);
     pointer-events: none;
     line-height: 1em;
+    text-transform: uppercase;
 }
 
 .content{

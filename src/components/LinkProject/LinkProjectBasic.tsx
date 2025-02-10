@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./LinkProject.module.css";
-
+import { truncateText } from "@/helpers/formatters";
 export interface ProjectProps {
     name?: string;
     description?: string;
@@ -33,7 +33,7 @@ export default function LinkProjectBasic(props: ProjectProps) {
 
             <div>
                 <p className={`font-bold ${styles.description}`}>
-                    {description ? description : 'Description'}
+                    {description ? truncateText(description, 60) : 'Description not found'}
                 </p>
             </div>
         </Link>

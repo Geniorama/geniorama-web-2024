@@ -7,8 +7,20 @@ import styles from "./SliderProjects.module.css";
 import CoverProject from "./../../../../public/assets/images/mockup-pc.jpg";
 import Link from "next/link";
 import LeftArrow from "../../../../public/assets/images/left-chevron.svg";
+import type { ProjectType } from "@/types";
+import { useRouter } from "next/navigation";
 
-export default function SliderProjects() {
+interface SliderProjectsProps {
+  projects: ProjectType[]
+}
+
+export default function SliderProjects({projects}: SliderProjectsProps) {
+  const router = useRouter();
+  const pathProjects = {
+    es: '/proyectos',
+    en: '/projects'
+  }
+
   return (
     <div className={styles.sliderContainer}>
       <Swiper
@@ -19,29 +31,28 @@ export default function SliderProjects() {
         onSwiper={(swiper) => console.log(swiper)}
         navigation={{ nextEl: ".arrow-next", prevEl: ".arrow-prev" }}
       >
-        <SwiperSlide>
-          <div className={styles.slide}>
-            <h2 className={styles.projectTitle}>/GYMDOOR/</h2>
-            <div className={styles.content}>
-              <img
-                className={styles.cover}
-                src={CoverProject.src}
-                alt="Name project"
-              />
-            </div>
-            <div className={styles.stack}>
-              <div className={styles.info}>
-                <span>New York</span>
-                <Link href="#" className="underline">
-                  See project
-                </Link>
+        {projects.map((project) => (
+          <SwiperSlide style={{cursor: 'pointer'}} onClick={() => router.push(`${pathProjects.es}/${project.slug}`)} key={project._id}>
+            <div className={styles.slide}>
+              <h2 className={styles.projectTitle}>/{project.title}/</h2>
+              <div className={styles.content}>
+                <img
+                  className={styles.cover}
+                  src={project.image || CoverProject.src}
+                  alt={project.title}
+                />
+              </div>
+              <div className={styles.stack}>
+                <div className={styles.info}>
+                  <span>New York</span>
+                  <Link href="#" className="underline">
+                    See project
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div style={{ color: "white" }}>Slide 2</div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className={styles.sliderNav}>
