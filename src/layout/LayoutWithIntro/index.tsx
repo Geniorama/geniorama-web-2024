@@ -13,7 +13,6 @@ export default function LayoutWithIntro({
   children: React.ReactNode;
 }) {
   const pathName = usePathname();
-  console.log(BgLinear.src);
   return (
     <React.Fragment>
       <div
