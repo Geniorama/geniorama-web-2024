@@ -1,8 +1,13 @@
+"use client"
+
 import styles from "./WhatDo.module.css";
 import CoverAbout from "../../../../public/assets/images/about/about-geniorama.jpg";
 import Isologo from "../../../../public/assets/images/Isologo Geniorama - otros fondos.png";
+import { useTranslations } from "next-intl";
 
 export default function WhatDo() {
+  const tAbout = useTranslations('about')
+
   return (
     <section>
       <div className="container text-white relative">
@@ -18,21 +23,18 @@ export default function WhatDo() {
 
           <div className="flex flex-col">
             <p className={`${styles.description} md:w-2/4 mt-5 order-last`}>
-              As you see before, we love to code. But coding has a lot of work
-              to make good things done, so we also work with a agile methodology
-              for tech-project management, developing any kind of task for our
-              clients and to make their ideas become real on time.
+              {tAbout('what_do_we_do_body')}
             </p>
             <div className="order-first">
               <h2
-                className={`${styles.copy} md:absolute left-0 top-0 underline z-10`}
+                className={`${styles.copy} md:absolute left-0 top-0 underline z-10 uppercase`}
               >
-                WHAT DO
+                {tAbout('what_do')}
               </h2>
               <h2
-                className={`${styles.copy} md:absolute md:right-0 md:bottom-44 underline`}
+                className={`${styles.copy} md:absolute md:right-0 md:bottom-44 underline uppercase`}
               >
-                WE DO
+                {tAbout('we_do')}
               </h2>
             </div>
           </div>

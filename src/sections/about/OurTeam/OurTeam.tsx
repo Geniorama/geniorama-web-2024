@@ -1,6 +1,9 @@
+"use client"
+
 import styles from "./OurTeam.module.css";
 import GeniusText from "@/components/GeniusText/GeniusText";
 import CardTeam from "@/components/CardTeam/CardTeam";
+import { useTranslations } from "next-intl";
 
 const team = [
   {
@@ -40,19 +43,20 @@ const team = [
 ];
 
 export default function OurTeam() {
+  const tAbout = useTranslations('about')
+
   return (
     <section className="py-24 px-4">
       <div className="container">
         <div className="text-white text-center">
-          <h2 className={`${styles.title}`}>
+          <h2 className={`${styles.title} uppercase`}>
             <span>/</span>
-            <span>THIS IS OUR</span>
-            <span>TEAM</span>
+            <span>{tAbout('this_is_our')}</span>
+            <span>{tAbout('team')}</span>
           </h2>
 
           <p className={`my-5 ${styles.description}`}>
-            We told you, we are an army. Well, rather a tech-army that works
-            very hard to make your software, app or website runs perfectly.
+           {tAbout('our_team_caption')}
           </p>
         </div>
 

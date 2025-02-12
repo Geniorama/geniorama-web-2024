@@ -4,18 +4,31 @@ import styles from "./Footer.module.css";
 import LogoGenioramaDark from '../../../../public/assets/images/logo-geniorama-negro.svg';
 import NewsletterForm from "@/components/NewsletterForm/NewsletterForm";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 
 export default function Footer() {
+  const tCommon = useTranslations('common')
+  const tFooter = useTranslations('footer')
+
   const router = useRouter();
   return (
     <footer className={styles.footer}>
       {/* NAVIGATION */}
       <ul className={`${styles.menu} columns-3 gap-0`}>
-        <li onClick={() => router.push('/work')} className={styles.menuItem}>WORK</li>
-        <li onClick={() => router.push('/about')} className={styles.menuItem}>ABOUT</li>
-        <li onClick={() => router.push('/contact')} className={styles.menuItem}>CONTACT</li>
+        <li className={`${styles.menuItem} hover:underline transition`} style={{textTransform: 'uppercase'}}>
+          <Link href={'/work'}>{tCommon('work')}</Link>
+        </li>
+        <li className={`${styles.menuItem} hover:underline transition`} style={{textTransform: 'uppercase'}}>
+          <Link href={'/about'}>{tCommon('about')}</Link>
+        </li>
+        <li className={`${styles.menuItem} hover:underline transition`} style={{textTransform: 'uppercase'}}>
+          <Link href={'/contact'}>
+            {tCommon('contact')}
+          </Link>
+        </li>
       </ul>
 
       {/* INFO CONTACT */}
@@ -23,7 +36,9 @@ export default function Footer() {
         <div className="md:flex justify-between">
           {/* Newsletter */}
           <div className={`${styles.boxNewsletter}`}>
-            <p className="text-3xl leading-7">Want to <br />work with <br />geniuses?</p>
+            <p style={{maxWidth: '200px'}} className="text-3xl leading-7">
+              {tFooter('title_newsletter')}
+            </p>
             <div className="mt-4">
               <NewsletterForm />
             </div>
@@ -32,22 +47,22 @@ export default function Footer() {
           {/* Widgets contact */}
           <div className="flex gap-5 md:gap-20 text-right justify-between md:justify-end pt-8 md:pt-0">
             <div className={`${styles.widget} text-left md:text-right`}>
-              <h5 className={styles.wdgTitle}>Help</h5>
+              <h5 className={styles.wdgTitle}>{tFooter('help')}</h5>
               <ul>
                 <li>
-                  <Link href={'/contact'}>Contact us</Link>
+                  <Link href={'/contact'}>{tFooter('contact_us')}</Link>
                 </li>
               </ul>
             </div>
             <div className={`${styles.widget} text-center md:text-right`}>
-              <h5 className={styles.wdgTitle}>Legal Info</h5>
+              <h5 className={styles.wdgTitle}>{tFooter('legal_info')}</h5>
               <ul>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Cookies</a></li>
+                <li><a href="#">{tFooter('privacy')}</a></li>
+                <li><a href="#">{tFooter('cookies')}</a></li>
               </ul>
             </div>
             <div className={`${styles.widget} text-right`}>
-              <h5 className={styles.wdgTitle}>Follow Us</h5>
+              <h5 className={styles.wdgTitle}>{tFooter('follow_us')}</h5>
               <ul>
                 <li><a href="https://www.instagram.com/geniorama/" target="_blank">Instagram</a></li>
                 <li><a href="https://www.linkedin.com/company/geniorama" target="_blank">Linked In</a></li>
@@ -65,11 +80,11 @@ export default function Footer() {
         {/* Copyright */}
         <div className={`${styles.copyright} columns-2 justify-space-between font-bold mt-3 md:mt-10`}>
           <div>
-            <span>Designed by</span>
+            <span>{tFooter('designed_by')}</span>
             <img className={`${styles.logoDesign} ml-2`} src="https://bitoinc.net/wp-content/uploads/2023/08/Bito-1.svg" alt="" />
           </div>
           <div className="text-right">
-            <p>©2023 All Rights Reserved</p>
+            <p>©2023 {tFooter('all_rights_reserved')}</p>
           </div>
         </div>
       </div>

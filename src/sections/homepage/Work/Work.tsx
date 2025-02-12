@@ -1,20 +1,25 @@
+"use client"
+
 import LinkProjectBasic from "@/components/LinkProject/LinkProjectBasic";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
 import GeniusText from "@/components/GeniusText/GeniusText";
 import styles from "./Work.module.css";
 import type { ProjectType } from "@/types";
+import { useTranslations } from "next-intl";
 
 interface WorkProps {
   projects: ProjectType[]
 }
 
 export default function Work({projects}: WorkProps) {
+  const tHome = useTranslations('homepage')
+
   return (
     <section className="py-16 md:py-28 px-3 md:px-0">
       <div className="container">
         <div className="text-white font-light" style={{fontSize: '3.7vw'}}>
           <GeniusText component={'h4'}>
-            Work
+            {tHome('work')}
           </GeniusText>
         </div>
         <div>
@@ -26,7 +31,7 @@ export default function Work({projects}: WorkProps) {
                   <LinkProjectBasic
                     name={project.title}
                     description={project.shortDescription}
-                    href={"#"}
+                    href={project.projectLink}
                     reverse={i == 3 || i == 4 && true}
                     spacing={i == 3 && 'gap-x-36'}
                   />
@@ -35,7 +40,7 @@ export default function Work({projects}: WorkProps) {
             })}
 
             <div className={`mt-5 text-right ${styles.seeMore}`}>
-              <GeniusLink href="/work">See more</GeniusLink>
+              <GeniusLink href="/work">{tHome('see_more')}</GeniusLink>
             </div>
         </div>
       </div>

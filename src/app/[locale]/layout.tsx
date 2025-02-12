@@ -30,11 +30,11 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <LayoutWithIntro>
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <LayoutWithIntro>
+              {children}
+            </LayoutWithIntro>
           </NextIntlClientProvider>
-        </LayoutWithIntro>
       </body>
     </html>
   )

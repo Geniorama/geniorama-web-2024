@@ -16,7 +16,7 @@ export default function LinkProjectBasic(props: ProjectProps) {
 
   return (
     <div>
-        <Link className={`text-white md:flex items-center ${spacing ? spacing : 'gap-x-80'} ${styles.link} ${imageUrl && styles.withCover} ${reverse && 'flex-row-reverse'}`} href={href ? href : '#'}>
+        <Link className={`text-white md:flex items-center ${spacing ? spacing : 'gap-x-80'} ${styles.link} ${imageUrl && styles.withCover} ${reverse && 'flex-row-reverse'}`} href={href ? href : '#'} target="_blank">
             <div className={`flex items-center ${imageUrl && ('md:gap-20')}`}>
                 {imageUrl && (
                     <div className={`${styles.cover} hidden md:block`}>
@@ -31,11 +31,11 @@ export default function LinkProjectBasic(props: ProjectProps) {
                 </div>
             </div>
 
-            <div>
+            {/* <div>
                 <p className={`font-bold ${styles.description}`}>
                     {description ? truncateText(description, 60) : 'Description not found'}
                 </p>
-            </div>
+            </div> */}
         </Link>
     </div>
   )

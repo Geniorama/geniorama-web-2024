@@ -18,7 +18,7 @@ export default function HomepagePage({projects}: HomepagePageProps) {
 
   useEffect(() => {
     if(projects){
-      const filterProjectsByFeatured = projects.filter((project) => project.featured)
+      const filterProjectsByFeatured = projects.filter((project) => project.featured && project.projectLink)
 
       console.log('projects', projects)
 
@@ -35,13 +35,17 @@ export default function HomepagePage({projects}: HomepagePageProps) {
  
   return (
     <>
-      <SliderProjects 
-        projects={featuredProjects}
-      />
+      {featuredProjects.length > 0 && (
+        <SliderProjects 
+          projects={featuredProjects}
+        />
+      )}
       <WeDevelop />
-      <Work
-        projects={fetchProjects} 
-      />
+      {fetchProjects.length > 0 && (
+        <Work
+          projects={fetchProjects} 
+        />
+      )}
       <WeAre />
     </>
   );

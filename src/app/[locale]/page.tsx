@@ -4,11 +4,13 @@ import type { SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import imageUrlBuilder from "@sanity/image-url";
+import { getLocale } from "next-intl/server";
 
 const options = { next: { revalidate: 30 } };
 
-export default async function page() {
-  const projects = await client.fetch<SanityDocument[]>(GET_ALL_PROJECTS(6), {}, options);
+export default async function HomePage() {
+  const locale = await getLocale()
+  const projects = await client.fetch<SanityDocument[]>(GET_ALL_PROJECTS(6, locale), {}, options);
   const { projectId, dataset } = client.config();
   const urlFor = (source: SanityImageSource) =>
     projectId && dataset
@@ -23,7 +25,8 @@ export default async function page() {
     language: project.language,
     featured: project.featured,
     description: project.description,
-    shortDescription: project.shortDescription
+    shortDescription: project.shortDescription,
+    projectLink: project.projectLink
   }))
   
   return(

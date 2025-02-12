@@ -9,16 +9,22 @@ import Link from "next/link";
 import LeftArrow from "../../../../public/assets/images/left-chevron.svg";
 import type { ProjectType } from "@/types";
 import { useRouter } from "next/navigation";
-
+import { useTranslations } from "next-intl";
 interface SliderProjectsProps {
   projects: ProjectType[]
 }
 
 export default function SliderProjects({projects}: SliderProjectsProps) {
+  const tHome = useTranslations('homepage')
   const router = useRouter();
   const pathProjects = {
     es: '/proyectos',
     en: '/projects'
+  }
+
+  const handleOpenProject = (link?:string) => {
+    if(!link) return
+    window.open(link, '_blank')
   }
 
   return (
@@ -32,7 +38,7 @@ export default function SliderProjects({projects}: SliderProjectsProps) {
         navigation={{ nextEl: ".arrow-next", prevEl: ".arrow-prev" }}
       >
         {projects.map((project) => (
-          <SwiperSlide style={{cursor: 'pointer'}} onClick={() => router.push(`${pathProjects.es}/${project.slug}`)} key={project._id}>
+          <SwiperSlide style={{cursor: 'pointer'}} onClick={() => handleOpenProject(project.projectLink)} key={project._id}>
             <div className={styles.slide}>
               <h2 className={styles.projectTitle}>/{project.title}/</h2>
               <div className={styles.content}>
@@ -44,9 +50,9 @@ export default function SliderProjects({projects}: SliderProjectsProps) {
               </div>
               <div className={styles.stack}>
                 <div className={styles.info}>
-                  <span>New York</span>
+                  {/* <span>New York</span> */}
                   <Link href="#" className="underline">
-                    See project
+                    {tHome('see_project')}
                   </Link>
                 </div>
               </div>

@@ -9,5 +9,6 @@ export interface ProjectType {
     description?: any ,
     language?: string,
     featured?: boolean,
-    shortDescription?: string
+    shortDescription?: string,
+    projectLink?: string
 }

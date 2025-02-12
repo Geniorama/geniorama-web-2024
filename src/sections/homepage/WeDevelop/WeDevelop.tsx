@@ -1,9 +1,14 @@
+"use client"
+
 import styles from "./WeDevelop.module.css";
 import Cover from '../../../../public/assets/images/home/Geniorama.jpg';
 import Isologo from '../../../../public/assets/images/Isologo Geniorama - otros fondos.png';
 import BgLinear from '../../../../public/assets/images/bg-linearRecurso 1.svg';
+import { useTranslations } from "next-intl";
 
 export default function WeDevelop() {
+  const tHome = useTranslations('homepage')
+
   return (
     <section
       style={{
@@ -19,16 +24,12 @@ export default function WeDevelop() {
         <div className="px-5 md:px-0 md:flex items-center justify-between relative z-10">
           <div className="md:w-1/2">
             <h2 className={`${styles.title}`} style={{ color: "white" }}>
-              /We <span>Develop.</span>
+              /{tHome('we_develop')}
             </h2>
           </div>
           <div className="md:w-1/3">
             <p className={`${styles.desc}`}>
-              Yes, that’s our mantra but also our every-day work. We are a group
-              of obsessed code-folks who make incredible software, apps and
-              websites for companies that search tech solutions. Over 10 years
-              of experience has taught us a lot of things, but the most
-              important: code and develop amazing things.
+              {tHome('we_develop_body')}
             </p>
           </div>
         </div>

@@ -1,19 +1,27 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import LogoLight from "../../../../public/assets/images/logo-geniorama-blanco.svg";
 import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter} from "next/navigation";
 import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
 import { useEffect, useState } from "react";
 import MenuResponsive from "@/components/MenuResponsive/MenuResponsive";
 import bgMenuMobile from "../../../../public/assets/images/bg-linearRecurso 1.svg";
 import menuPrincipal from "@/MenuItems/menuPrincipal";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
-  const pathname = usePathname();
+  const pathnameWithLocale = usePathname();
+  const pathname = pathnameWithLocale.replace(/^\/(en|es)\//, '/');
+  const locale = useLocale();
+  const router = useRouter();
+  const tCommon = useTranslations('common')
+
+  const actualPath = pathname === '/en' || '/es' ? '/' : pathname
 
   useEffect(() => {
     const header = document.getElementById('main-head');
@@ -32,27 +40,27 @@ export default function Header() {
     }
   },[pathname])
 
-  const menuItems = [
-    {
-      name: "Work",
-      path: "/work",
-    },
-    {
-      name: "About",
-      path: "/about",
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-    },
-  ];
-
   const handleToggleMenu = () =>{
     setOpenMenu(!openMenu);
   }
 
   const handleCloseMenu = () =>{
     setOpenMenu(false)
+  }
+
+  const handleChangeLang = (newLocale: string) => {
+    if(!newLocale) return
+
+    let newPathname
+    if(newLocale === 'en'){
+      newPathname = pathname.replace('/es', '/en')
+    } else if(newLocale === 'es'){
+      newPathname = pathname.replace('/en', '/es')
+    }
+
+    if(newPathname){
+      router.push(newPathname)
+    }
   }
   
   return (
@@ -90,7 +98,7 @@ export default function Header() {
                     active={pathname == path ? true : false}
                     href={path}
                   >
-                    {name}
+                    {tCommon(name.toLowerCase())||'undefined'}
                   </GeniusLink>
                 </li>
               );
@@ -99,10 +107,10 @@ export default function Header() {
 
           <ul className={`${styles.menuList} ${styles.menuLang}`}>
             <li>
-              <GeniusLink active={true}>En</GeniusLink>
+              <GeniusLink href={actualPath} locale={'en'} active={locale === 'en'}>En</GeniusLink>
             </li>
             <li>
-              <GeniusLink>Es</GeniusLink>
+              <GeniusLink href={actualPath} locale={'es'} active={locale === 'es'}>Es</GeniusLink>
             </li>
           </ul>
         </div>

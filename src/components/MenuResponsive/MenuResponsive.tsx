@@ -1,8 +1,9 @@
-import Link from "next/link";
+// import Link from "next/link";
 import styled from "styled-components";
 import GeniusText from "../GeniusText/GeniusText";
 import Logo from "../../../public/assets/images/logo-geniorama-blanco.svg";
 import menuPrincipal from "@/MenuItems/menuPrincipal";
+import { Link } from "@/i18n/routing";
 
 export const LinkItem = styled.span`
   font-family: "Druk Cond Trial", sans-serif;
