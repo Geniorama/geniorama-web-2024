@@ -21,7 +21,7 @@ export default function Header() {
   const router = useRouter();
   const tCommon = useTranslations('common')
 
-  const actualPath = pathname === '/en' || '/es' ? '/' : pathname
+  const actualPath = (pathname === '/es' || pathname === '/en') ? '/' : pathname
 
   useEffect(() => {
     const header = document.getElementById('main-head');

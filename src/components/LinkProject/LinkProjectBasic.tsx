@@ -20,7 +20,7 @@ export default function LinkProjectBasic(props: ProjectProps) {
             <div className={`flex items-center ${imageUrl && ('md:gap-20')}`}>
                 {imageUrl && (
                     <div className={`${styles.cover} hidden md:block`}>
-                        <img className="aspect-square object-cover" src={imageUrl} alt="" />
+                        <img className="object-cover h-full" src={imageUrl} alt="" />
                     </div>
                 )}
                 <div className={`uppercase ${styles.name}`}>
