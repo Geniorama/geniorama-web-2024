@@ -17,6 +17,7 @@ export default getRequestConfig(async ({requestLocale}) => {
       footer: (await import(`../../locales/${locale}/footer.json`)).default,
       homepage: (await import(`../../locales/${locale}/homepage.json`)).default,
       about: (await import(`../../locales/${locale}/about.json`)).default,
+      contact: (await import(`../../locales/${locale}/contact.json`)).default,
     }
   };
 });

@@ -17,7 +17,7 @@ export default function HeadingPage(props:HeadingPageProps) {
       }}  
       className={`relative text-center pb-10 ${props.backgroundImage && 'bg-no-repeat bg-cover bg-bottom bg-left'} ${props.layerOpacity && styles.layerOpacity}`}>
       <div className="relative">
-        <h1 className={`${styles.title} text-white`}>{props.title}</h1>
+        <h1 className={`${styles.title} text-white uppercase`}>{props.title}</h1>
         
         {props.cover && (
             <div className='absolute top-0 left-0 flex justify-center items-center h-3/4 md:h-full'>
