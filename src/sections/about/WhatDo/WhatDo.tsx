@@ -18,7 +18,8 @@ export default function WhatDo() {
               alt=""
               className={`${styles.isologo} absolute`}
             />
-            <img className="w-full" src={CoverAbout.src} alt="" />
+            {/* <img className="w-full" src={CoverAbout.src} alt="" /> */}
+            <video className="w-full aspect-video" muted autoPlay loop src="https://res.cloudinary.com/geniorama2021/video/upload/v1739485317/Geniorama%20Web/freepik__a-smooth-dollyin-movement-approaches-the-two-figur__22645_oofuau.mp4"></video>
           </div>
 
           <div className="flex flex-col">

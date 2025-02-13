@@ -20,12 +20,13 @@ export default function HeadingPage(props:HeadingPageProps) {
         <h1 className={`${styles.title} text-white uppercase`}>{props.title}</h1>
         
         {props.cover && (
-            <div className='absolute top-0 left-0 flex justify-center items-center h-3/4 md:h-full'>
-                <img 
+            <div className='absolute top-0 left-0 flex justify-center items-center h-3/4 md:h-full mx-auto w-full'>
+                {/* <img 
                     src={props.cover} 
                     alt={props.title} 
                     className='w-2/5'
-                    />
+                    /> */}
+                <video className='w-2/5 aspect-video mx-auto' autoPlay muted loop src="https://res.cloudinary.com/geniorama2021/video/upload/v1739486214/Geniorama%20Web/freepik__a-smooth-dollyin-movement-approaches-the-character__22647_skte2d.mp4"></video>
             </div>
         )}
 

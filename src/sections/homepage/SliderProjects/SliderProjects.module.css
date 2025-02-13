@@ -1,6 +1,5 @@
 .sliderContainer{
     position: relative;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +92,7 @@
 
 @media screen and (max-width: 640px){
     .projectTitle{
-        font-size: 32vw;
+        font-size: 27vw;
         margin-bottom: 100px;
     }
     

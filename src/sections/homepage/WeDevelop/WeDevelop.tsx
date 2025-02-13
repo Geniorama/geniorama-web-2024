@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./WeDevelop.module.css";
-import Cover from '../../../../public/assets/images/home/Geniorama.jpg';
+import Cover from '../../../../public/assets/images/home/geniorama_home_1.png';
 import Isologo from '../../../../public/assets/images/Isologo Geniorama - otros fondos.png';
 import BgLinear from '../../../../public/assets/images/bg-linearRecurso 1.svg';
 import { useTranslations } from "next-intl";
@@ -35,7 +35,8 @@ export default function WeDevelop() {
         </div>
 
         <div className="w-full absolute top-0 left-1/4 md:left-0 d-flex justify-center text-center items-center">
-            <img className={`${styles.cover} w-full md:max-w-screen-lg m-auto md:rounded-lg`} src={Cover.src} alt="" />
+            {/* <img className={`${styles.cover} w-full md:max-w-screen-lg m-auto md:rounded-lg`} src={Cover.src} alt="" /> */}
+            <video poster={Cover.src} autoPlay loop muted className="w-full aspect-video max-w-[1000px] mx-auto" src="https://res.cloudinary.com/geniorama2021/video/upload/v1739482272/Geniorama%20Web/freepik__a-slow-dollyin-movement-towards-the-subject-captur__22643_kns9cn.mp4"></video>
             <img className={`${styles.isologo} absolute hidden md:block`} src={Isologo.src} alt="" />
         </div>
       </div>

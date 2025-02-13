@@ -68,7 +68,7 @@ export default function MenuResponsive(props:MenuResponsiveProps) {
           const {name, path} = item
           return (
             <li key={i}>
-              <Link className="block" href={path}>
+              <Link onClick={props.handleClose} className="block" href={path}>
                 <LinkItem>/{name}</LinkItem>
               </Link>
             </li>

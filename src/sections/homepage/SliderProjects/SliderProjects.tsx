@@ -28,7 +28,7 @@ export default function SliderProjects({projects}: SliderProjectsProps) {
   }
 
   return (
-    <div className={styles.sliderContainer}>
+    <div className={`${styles.sliderContainer} lg:min-h-[95vh]`}>
       <Swiper
         modules={[Navigation]}
         spaceBetween={50}
@@ -43,7 +43,7 @@ export default function SliderProjects({projects}: SliderProjectsProps) {
               <h2 className={styles.projectTitle}>/{project.title}/</h2>
               <div className={styles.content}>
                 <img
-                  className={styles.cover}
+                  className={`${styles.cover}`}
                   src={project.image || CoverProject.src}
                   alt={project.title}
                 />

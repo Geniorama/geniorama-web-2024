@@ -21,7 +21,7 @@ export default async function Work() {
     _id: project._id,
     title: project.title || '',
     slug: project.slug.current || '',
-    image: project.image ? urlFor(project.image)?.width(550).height(310).url() : null,
+    image: project.image ? urlFor(project.image)?.width(1920).height(1080).url() : null,
     language: project.language,
     featured: project.featured,
     description: project.description,

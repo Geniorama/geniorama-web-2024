@@ -47,21 +47,6 @@ export default function Header() {
   const handleCloseMenu = () =>{
     setOpenMenu(false)
   }
-
-  const handleChangeLang = (newLocale: string) => {
-    if(!newLocale) return
-
-    let newPathname
-    if(newLocale === 'en'){
-      newPathname = pathname.replace('/es', '/en')
-    } else if(newLocale === 'es'){
-      newPathname = pathname.replace('/en', '/es')
-    }
-
-    if(newPathname){
-      router.push(newPathname)
-    }
-  }
   
   return (
     <header id="main-head" className={`${styles.container} relative z-50 top-0 left-0`}>
