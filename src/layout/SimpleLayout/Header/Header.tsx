@@ -5,23 +5,21 @@ import { Link } from "@/i18n/routing";
 import LogoLight from "../../../../public/assets/images/logo-geniorama-blanco.svg";
 import styles from "./Header.module.css";
 import GeniusLink from "@/components/GeniusLink/GeniusLink";
-import { usePathname, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 import ButtonMenuToggle from "@/components/MenuToggle/ButtonMenuToggle";
 import { useEffect, useState } from "react";
 import MenuResponsive from "@/components/MenuResponsive/MenuResponsive";
 import bgMenuMobile from "../../../../public/assets/images/bg-linearRecurso 1.svg";
 import menuPrincipal from "@/MenuItems/menuPrincipal";
 import { useTranslations, useLocale } from "next-intl";
+import { usePathname } from "@/i18n/routing";
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
-  const pathnameWithLocale = usePathname();
-  const pathname = pathnameWithLocale.replace(/^\/(en|es)\//, '/');
+  const pathname = usePathname();
   const locale = useLocale();
   const router = useRouter();
   const tCommon = useTranslations('common')
-
-  const actualPath = (pathname === '/es' || pathname === '/en') ? '/' : pathname
 
   useEffect(() => {
     const header = document.getElementById('main-head');
@@ -92,10 +90,10 @@ export default function Header() {
 
           <ul className={`${styles.menuList} ${styles.menuLang}`}>
             <li>
-              <GeniusLink href={actualPath} locale={'en'} active={locale === 'en'}>En</GeniusLink>
+              <GeniusLink href={pathname} locale={'en'} active={locale === 'en'}>En</GeniusLink>
             </li>
             <li>
-              <GeniusLink href={actualPath} locale={'es'} active={locale === 'es'}>Es</GeniusLink>
+              <GeniusLink href={pathname} locale={'es'} active={locale === 'es'}>Es</GeniusLink>
             </li>
           </ul>
         </div>
