@@ -20,9 +20,9 @@
     background-color: white;
 }
 
-.title span:first-child{
+/* .title span:first-child{
     font-size: 12vw;
-}
+} */
 
 .title span:last-child{
     font-family: 'Druk Text Wide Trial', sans-serif;
@@ -37,9 +37,9 @@
     .title{
         font-size: 13vw;
     }
-    .title span:first-child{
+    /* .title span:first-child{
         font-size: 14vw;
-    }
+    } */
 
     .description{
         font-size: 13px;

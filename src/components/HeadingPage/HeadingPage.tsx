@@ -15,7 +15,7 @@ export default function HeadingPage(props:HeadingPageProps) {
         backgroundColor: props.backgroundColor && props.backgroundColor,
         backgroundImage: props.backgroundImage && `url('${props.backgroundImage}')`
       }}  
-      className={`relative text-center pb-10 ${props.backgroundImage && 'bg-no-repeat bg-cover bg-bottom bg-left'} ${props.layerOpacity && styles.layerOpacity}`}>
+      className={`relative text-center pb-10 ${props.backgroundImage && 'bg-no-repeat bg-cover bg-bottom bg-left pt-5'} ${props.layerOpacity && styles.layerOpacity}`}>
       <div className="relative">
         <h1 className={`${styles.title} text-white uppercase`}>{props.title}</h1>
         

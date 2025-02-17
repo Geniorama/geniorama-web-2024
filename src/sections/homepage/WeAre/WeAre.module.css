@@ -22,6 +22,7 @@
 @media screen and (max-width: 640px){
     .list li{
         font-size: 10px;
+        line-height: 1.5em;
     }
 
     .label{

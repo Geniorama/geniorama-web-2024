@@ -27,7 +27,7 @@ export default function WeAre() {
                 <hr className={`${styles.divider}`} />
                 <div className="flex justify-between my-3 md:my-5">
                     <span className={`${styles.label}`} style={{textTransform: 'uppercase'}}>{tHome('these')}</span>
-                    <ul className={`${styles.list} w-1/3 md:w-1/5`}>
+                    <ul className={`${styles.list} w-1/3 md:w-1/5 text-xl`}>
                         <li className='font-light'>
                             <GeniusText>{tHome('apps_development')}</GeniusText>
                         </li>
@@ -42,7 +42,7 @@ export default function WeAre() {
                 <hr className={`${styles.divider}`} />
                 <div className="flex justify-between my-3 md:my-5">
                     <span style={{textTransform: 'uppercase'}} className={`${styles.label}`}>{tHome('are')}</span>
-                    <ul className={`${styles.list} w-1/3 md:w-1/5`}>
+                    <ul className={`${styles.list} w-1/3 md:w-1/5 text-xl`}>
                         <li className='font-light'>
                             <GeniusText>{tHome('sem_positioning')}</GeniusText>
                         </li>
@@ -54,7 +54,7 @@ export default function WeAre() {
                 <hr className={`${styles.divider}`} />
                 <div className="flex justify-between my-3 md:my-5">
                     <span style={{textTransform: 'uppercase'}} className={`${styles.label}`}>{tHome('our')}</span>
-                    <ul className={`${styles.list} w-1/3 md:w-1/5`}>
+                    <ul className={`${styles.list} w-1/3 md:w-1/5 text-xl`}>
                         <li className='font-light'>
                             <GeniusText>{tHome('audiovisual_production')}</GeniusText>
                         </li>
@@ -63,7 +63,7 @@ export default function WeAre() {
                 <hr className={`${styles.divider}`} />
                 <div className="flex justify-between my-3 md:my-5">
                     <span style={{textTransform: 'uppercase'}} className={`${styles.label}`}>{tHome('services')}.</span>
-                    <ul className={`${styles.list} w-1/3 md:w-1/5`}>
+                    <ul className={`${styles.list} w-1/3 md:w-1/5 text-xl`}>
                         <li className='font-light'>
                             <GeniusText>{tHome('integrations')}</GeniusText>
                         </li>

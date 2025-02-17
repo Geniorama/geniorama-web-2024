@@ -46,3 +46,11 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #959595;
 }
+
+/* Custom styles swiper */
+
+button.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}

@@ -3,7 +3,7 @@
 import styles from "./OurTeam.module.css";
 import GeniusText from "@/components/GeniusText/GeniusText";
 import CardTeam from "@/components/CardTeam/CardTeam";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const team = [
   {
@@ -23,7 +23,7 @@ const team = [
 
   {
     name: "Diego Burgos",
-    position: "Wordpress Dev",
+    position: "Wordpress Manager",
   },
 
   {
@@ -37,22 +37,28 @@ const team = [
   },
 
   {
-    name: "Jairo Ruíz",
+    name: "Valentina Ortiz",
     position: "Wordpress / Shopify Dev",
+  },
+
+  {
+    name: "Diego Solorzano",
+    position: "Fullstack Senior Developer",
   },
 ];
 
 export default function OurTeam() {
   const tAbout = useTranslations('about')
+  const locale = useLocale()
 
   return (
     <section className="py-24 px-4">
       <div className="container">
         <div className="text-white text-center">
           <h2 className={`${styles.title} uppercase`}>
-            <span>/</span>
-            <span>{tAbout('this_is_our')}</span>
-            <span>{tAbout('team')}</span>
+            <span className={`${locale === "es" ? "text-4xl lg:text-[170px] mr-1" : "lg:text-[12vw] mr-1"}`}>/</span>
+            <span className={`${locale === "es" && "text-4xl lg:text-[160px]"}`}>{tAbout('this_is_our')}</span>
+            <span className={`${locale === "es" && "text-4xl lg:text-[160px]"}`}>{tAbout('team')}</span>
           </h2>
 
           <p className={`my-5 ${styles.description}`}>
@@ -97,7 +103,7 @@ export default function OurTeam() {
           </div>
 
           {/* TEAM */}
-          <div className="mt-20 md:mt-40">
+          <div className="mt-20 md:mt-30">
             <span>
               <GeniusText>Our Team</GeniusText>
             </span>
