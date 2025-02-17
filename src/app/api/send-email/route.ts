@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
   // Configura el transporter de nodemailer con las credenciales de Brevo
   const transporter = nodemailer.createTransport({
-    host: "smtp-relay.sendinblue.com",
+    host: process.env.BREVO_SMTP_HOST,
     port: 587, // Usa 465 para SSL
     secure: false, // true para SSL
     auth: {
