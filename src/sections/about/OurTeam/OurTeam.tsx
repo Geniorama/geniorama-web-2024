@@ -4,6 +4,8 @@ import styles from "./OurTeam.module.css";
 import GeniusText from "@/components/GeniusText/GeniusText";
 import CardTeam from "@/components/CardTeam/CardTeam";
 import { useTranslations, useLocale } from "next-intl";
+import PicOscarPedraza from "../../../../public/assets/images/about/oscar-pedraza.webp";
+import PicAngelBurgos from "../../../../public/assets/images/about/angel-burgos.webp";
 
 const team = [
   {
@@ -70,11 +72,11 @@ export default function OurTeam() {
           {/* FOUNDERS */}
           <div className="md:flex gap-10 justify-center items-center">
             <div className={`${styles.cardTeam} mb-10 md:w-2/4`}>
-              <div>
+              <div className="w-full bg-gray-950 aspect-square flex justify-center items-end">
                 <img
-                  src="https://geniorama.co/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2Fequipo%2Fteam-oscar.7e8119c7f94e1e044061cdbc1bf1e086.png&w=640&q=75"
+                  src={PicOscarPedraza.src}
                   alt="Oscar Pedraza"
-                  className="w-full aspect-square object-cover object-top"
+                  className="w-[350px] grayscale opacity-50 transition hover:opacity-100"
                 />
               </div>
               <div className="mt-5">
@@ -86,11 +88,11 @@ export default function OurTeam() {
             </div>
 
             <div className={`${styles.cardTeam} mb-10 md:w-2/4`}>
-              <div>
+              <div className="w-full bg-gray-950 aspect-square flex justify-center items-end">
                 <img
-                  src="https://geniorama.co/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2Fequipo%2Fteam-angel.50c6b67b21cbf254eb7c4f1838226186.png&w=640&q=75"
-                  alt="Oscar Pedraza"
-                  className="w-full aspect-square object-cover object-top"
+                  src={PicAngelBurgos.src}
+                  alt="Angel Burgos"
+                  className="w-[400px] grayscale opacity-50 transition hover:opacity-100"
                 />
               </div>
               <div className="mt-5">
