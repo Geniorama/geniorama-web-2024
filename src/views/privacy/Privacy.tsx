@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { useLocale } from 'next-intl'
+import { Link } from '@/i18n/routing'
 
 export default function Privacy() {
   const locale = useLocale()
@@ -67,6 +68,7 @@ export default function Privacy() {
                 <ul className='list-disc list-inside ml-4 mb-4'>
                     <li><strong>Brevo (Sendinblue SAS):</strong> Email delivery. Servers in the EU. Policy: <a href="https://www.brevo.com/legal/privacypolicy/" className="text-blue-400 hover:underline">https://www.brevo.com/legal/privacypolicy/</a></li>
                     <li><strong>Google Analytics:</strong> Navigation analysis. Policy: <a href="https://policies.google.com/privacy" className="text-blue-400 hover:underline">https://policies.google.com/privacy</a></li>
+                    <li><strong>Microsoft Clarity:</strong> Análisis de comportamiento del usuario y mapas de calor. Política: <a href="https://clarity.microsoft.com/terms" className="text-blue-400 hover:underline">https://clarity.microsoft.com/terms</a></li>
                 </ul>
                 <p>These providers operate under data protection agreements and adequate safeguards in accordance with GDPR and other international regulations.</p>
 
@@ -92,8 +94,8 @@ export default function Privacy() {
                 <p>To exercise them, write to us at <a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a> with the subject &quot;Data Protection&quot;.</p>
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>9. Cookie Usage</h2>
-                <p>We use our own and third-party cookies (Google Analytics) to analyze browsing behavior. You can accept or reject cookies from your browser settings or our cookie banner.</p>
-                <p>See more in our Cookie Policy.</p>
+                <p>We use our own and third-party cookies (Google Analytics, Microsoft Clarity) to analyze browsing behavior. You can accept or reject cookies from your browser settings or our cookie banner.</p>
+                <p>See more in our <Link className="hover:underline transition text-blue-400" href="/cookies">Cookie Policy</Link>.</p>
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>10. Commercial Communications</h2>
                 <p>You will only receive our newsletter if you expressly subscribe through the form enabled for this purpose. You can unsubscribe at any time by clicking the link at the bottom of each email.</p>
@@ -106,7 +108,7 @@ export default function Privacy() {
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>13. Contact</h2>
                 <p>For questions or requests related to your data, contact us at:</p>
-                <p className='text-lg'>📧 <a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a></p>
+                <p className='text-lg'><a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a></p>
             </div>
         ) : (
             <div className='mt-5'>
@@ -158,6 +160,7 @@ export default function Privacy() {
                 <ul className='list-disc list-inside ml-4 mb-4'>
                     <li><strong>Brevo (Sendinblue SAS):</strong> Envío de correos electrónicos. Servidores en la UE. Política: <a href="https://www.brevo.com/legal/privacypolicy/" className="text-blue-400 hover:underline">https://www.brevo.com/legal/privacypolicy/</a></li>
                     <li><strong>Google Analytics:</strong> Análisis de navegación. Política: <a href="https://policies.google.com/privacy" className="text-blue-400 hover:underline">https://policies.google.com/privacy</a></li>
+                    <li><strong>Microsoft Clarity:</strong> Análisis de comportamiento del usuario y mapas de calor. Política: <a href="https://clarity.microsoft.com/terms" className="text-blue-400 hover:underline">https://clarity.microsoft.com/terms</a></li>
                 </ul>
                 <p>Estos proveedores operan bajo acuerdos de protección de datos y garantías adecuadas conforme a RGPD y demás normativas internacionales.</p>
 
@@ -180,11 +183,11 @@ export default function Privacy() {
                     <li>Oposición al tratamiento</li>
                     <li>Portabilidad de datos (solo UE)</li>
                 </ul>
-                <p>Para ejercerlos, escríbenos a <a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a> con el asunto "Protección de Datos".</p>
+                <p>Para ejercerlos, escríbenos a <a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a> con el asunto &ldquo;Protección de Datos&rdquo;.</p>
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>9. Uso de Cookies</h2>
-                <p>Utilizamos cookies propias y de terceros (Google Analytics) para analizar el comportamiento de navegación. Puedes aceptar o rechazar cookies desde la configuración de tu navegador o nuestro banner de cookies.</p>
-                <p>Consulta más en nuestra Política de Cookies.</p>
+                <p>Utilizamos cookies propias y de terceros (Google Analytics, Microsoft Clarity) para analizar el comportamiento de navegación. Puedes aceptar o rechazar cookies desde la configuración de tu navegador o nuestro banner de cookies.</p>
+                <p>Consulta más en nuestra <Link className="hover:underline transition text-blue-400" href="/cookies">Política de Cookies</Link></p>
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>10. Comunicaciones Comerciales</h2>
                 <p>Solo recibirás nuestro boletín si te suscribes expresamente mediante el formulario habilitado para ello. Puedes darte de baja en cualquier momento haciendo clic en el enlace que aparece al pie de cada correo electrónico.</p>
@@ -197,7 +200,7 @@ export default function Privacy() {
 
                 <h2 className='text-2xl font-bold mt-8 mb-4' style={{fontFamily: 'var(--font-geniorama)'}}>13. Contacto</h2>
                 <p>Para preguntas o solicitudes relacionadas con tus datos, contáctanos en:</p>
-                <p className='text-lg'>📧 <a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a></p>
+                <p className='text-lg'><a href="mailto:contacto@geniorama.co" className="text-blue-400 hover:underline">contacto@geniorama.co</a></p>
             </div>
         )}
     </div>

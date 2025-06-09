@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Recaptcha from "@/components/Recaptcha/Recaptcha";
+import { Link as LinkRouting  } from "@/i18n/routing";
 
 
 interface RecaptchaResponse {
@@ -214,9 +215,9 @@ export default function ContactForm() {
           />
           <label htmlFor="privacy" className="ml-2">
             {tContact("agree_to")}{" "}
-            <Link target="_blank" className="underline" href={"#"}>
-              {tContact("terms_and_conditions")}
-            </Link>
+            <LinkRouting target="_blank" className="underline" href={"/privacy"}>
+              {tContact("privacy_policies")}
+            </LinkRouting>
           </label>
         </div>
 

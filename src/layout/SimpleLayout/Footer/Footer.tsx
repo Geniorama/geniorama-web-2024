@@ -3,6 +3,7 @@
 import styles from "./Footer.module.css";
 import LogoGenioramaDark from '../../../../public/assets/images/logo-geniorama-negro.svg';
 import NewsletterForm from "@/components/NewsletterForm/NewsletterForm";
+import CookieManager from "@/components/CookieManager/CookieManager";
 import { useRouter } from "next/navigation";
 // import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -50,22 +51,23 @@ export default function Footer() {
               <h5 className={styles.wdgTitle}>{tFooter('help')}</h5>
               <ul>
                 <li>
-                  <Link href={'/contact'}>{tFooter('contact_us')}</Link>
+                  <Link className="hover:opacity-50 transition" href={'/contact'}>{tFooter('contact_us')}</Link>
                 </li>
               </ul>
             </div>
             <div className={`${styles.widget} text-center md:text-right`}>
               <h5 className={styles.wdgTitle}>{tFooter('legal_info')}</h5>
               <ul>
-                <li><a href="#">{tFooter('privacy')}</a></li>
-                <li><a href="#">{tFooter('cookies')}</a></li>
+                <li><Link className="hover:opacity-50 transition" href="/privacy">{tFooter('privacy')}</Link></li>
+                <li><Link className="hover:opacity-50 transition" href="/cookies">{tFooter('cookies')}</Link></li>
+                <li><CookieManager /></li>
               </ul>
             </div>
             <div className={`${styles.widget} text-right`}>
               <h5 className={styles.wdgTitle}>{tFooter('follow_us')}</h5>
               <ul>
-                <li><a href="https://www.instagram.com/geniorama/" target="_blank">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/company/geniorama" target="_blank">Linked In</a></li>
+                <li><a className="hover:opacity-50 transition" href="https://www.instagram.com/geniorama/" target="_blank">Instagram</a></li>
+                <li><a className="hover:opacity-50 transition" href="https://www.linkedin.com/company/geniorama" target="_blank">Linked In</a></li>
               </ul>
             </div>
           </div>

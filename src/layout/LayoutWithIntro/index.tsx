@@ -4,6 +4,8 @@ import React from "react";
 import Header from "@/layout/SimpleLayout/Header/Header";
 import Footer from "@/layout/SimpleLayout/Footer/Footer";
 import Intro from "@/sections/homepage/Intro/Intro";
+import CookieBanner from "@/components/CookieBanner/CookieBanner";
+import CookieConsentInitializer from "@/components/CookieConsentInitializer/CookieConsentInitializer";
 import { usePathname } from "next/navigation";
 import BgLinear from "../../../public/assets/images/bg-linearRecurso 1.svg";
 
@@ -15,6 +17,7 @@ export default function LayoutWithIntro({
   const pathName = usePathname();
   return (
     <React.Fragment>
+      <CookieConsentInitializer />
       <div
         className="wraper-intro"
         style={{
@@ -29,6 +32,7 @@ export default function LayoutWithIntro({
       </div>
       {children}
       <Footer />
+      <CookieBanner />
     </React.Fragment>
   );
 }
