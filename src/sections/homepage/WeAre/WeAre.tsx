@@ -68,6 +68,9 @@ export default function WeAre() {
                             <GeniusText>{tHome('integrations')}</GeniusText>
                         </li>
                         <li className='font-light'>
+                            <GeniusText>{tHome('process_automation')}</GeniusText>
+                        </li>
+                        <li className='font-light'>
                             <GeniusText>{tHome('mail_marketing')}</GeniusText>
                         </li>
                         <li className='font-light'>
