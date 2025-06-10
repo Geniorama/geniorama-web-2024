@@ -14,10 +14,13 @@ export async function POST(request: Request) {
       text // Para fallback SMTP
     } = await request.json();
 
+    console.log("Datos recibidos:", { to, templateId, subject, fromName, fromEmail, html, text, templateData });
+
     // Validar datos requeridos
     if (!to || !templateId) {
+      console.error("Faltan campos requeridos: to o templateId", { to, templateId });
       return NextResponse.json(
-        { success: false, error: "Se requieren 'to' y 'templateId'" },
+        { success: false, error: "Se requieren 'to' y 'templateId'", received: { to, templateId } },
         { status: 400 }
       );
     }
@@ -26,8 +29,11 @@ export async function POST(request: Request) {
     const brevoApiKey = process.env.BREVO_API_KEY;
     if (brevoApiKey) {
       try {
+        const recipients = Array.isArray(to) ? to : [{ email: to }];
+        console.log("Destinatarios normalizados:", recipients);
+
         const emailData = {
-          to: Array.isArray(to) ? to : [{ email: to }],
+          to: recipients.map(email => ({ email })),
           templateId: parseInt(templateId),
           params: templateData || {},
           subject: subject,
@@ -36,6 +42,8 @@ export async function POST(request: Request) {
             email: fromEmail
           }
         };
+
+        console.log("Enviando con Brevo API:", JSON.stringify(emailData, null, 2));
 
         const response = await fetch('https://api.brevo.com/v3/smtp/email', {
           method: 'POST',
@@ -50,18 +58,25 @@ export async function POST(request: Request) {
         const result = await response.json();
 
         if (response.ok) {
+          console.log("Respuesta exitosa de Brevo API:", result);
           return NextResponse.json({
             success: true,
             messageId: result.messageId,
             data: result,
-            method: 'brevo_api'
+            method: 'brevo_api',
+            recipients: recipients
           });
         } else {
-          console.warn("Error de Brevo API, intentando con SMTP:", result);
-          // Continuar con el fallback SMTP
+          console.error("Error de Brevo API:", result);
+          return NextResponse.json({
+            success: false,
+            error: "Error al enviar el email con template (Brevo API)",
+            details: result,
+            sentData: emailData
+          }, { status: response.status });
         }
       } catch (apiError) {
-        console.warn("Error al conectar con Brevo API, intentando con SMTP:", apiError);
+        console.error("Error al conectar con Brevo API:", apiError);
         // Continuar con el fallback SMTP
       }
     }
@@ -81,10 +96,12 @@ export async function POST(request: Request) {
 
     // Para SMTP necesitamos HTML o texto
     if (!html && !text) {
+      console.error("Faltan html o text para SMTP", { html, text });
       return NextResponse.json(
         { 
           success: false, 
-          error: "Para usar SMTP se requiere 'html' o 'text' en el body" 
+          error: "Para usar SMTP se requiere 'html' o 'text' en el body",
+          received: { html, text }
         },
         { status: 400 }
       );
@@ -97,6 +114,7 @@ export async function POST(request: Request) {
       text,
       html,
     });
+    console.log("Respuesta de nodemailer:", info);
 
     return NextResponse.json({
       success: true,
