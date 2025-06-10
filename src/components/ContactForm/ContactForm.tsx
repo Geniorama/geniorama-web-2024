@@ -107,6 +107,41 @@ export default function ContactForm() {
     }
   }
 
+  const sendEmailTemplate = async (data:FormDataProps) => {
+    if(!data.email){
+      console.log('falta el correo del destinatario')
+      return
+    }
+
+    try {
+      const response = await fetch("/api/send-template-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: data.email,
+          templateId: 3,
+          templateData: {
+            language: data.language,
+          },
+          subject: "¡Mensaje recibido! ✅",
+          fromName: "Equipo Geniorama",
+          fromEmail: "noreply@geniorama.co"
+        })
+      })
+
+      if(!response.ok){
+        setError("Error sending email")
+        return
+      }
+
+      setSuccess("The email has been send")
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+    }
+  }
+
   const resetData = () => {
     setFormData(initialData);
     setTimeout(() => {
@@ -142,7 +177,8 @@ export default function ContactForm() {
       const data: RecaptchaResponse = await response.json();
 
       if (data.success) {
-        sendEmail(formData, "geniorama.info@gmail.com")
+        sendEmail(formData, "noreply@geniorama.site")
+        sendEmailTemplate(formData)
         sendWebhookData(formData);
       } else {
         alert("Error en la verificación de reCAPTCHA.");
