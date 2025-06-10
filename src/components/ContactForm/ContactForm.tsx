@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Recaptcha from "@/components/Recaptcha/Recaptcha";
@@ -97,13 +96,13 @@ export default function ContactForm() {
       const responseJson = await response.json();
 
       if(!responseJson.success){
-        setError("Error sending email")
+        setError(locale === "es" ? "Error al enviar el correo" : "Error sending email")
         return
       }
 
-      setSuccess("The email has been send")
+      setSuccess(locale === "es" ? "El correo ha sido enviado" : "The email has been send")
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
+      console.error(locale === "es" ? "Error al enviar el formulario:" : "Error sending form:", error);
     }
   }
 
@@ -121,22 +120,22 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           to: data.email,
-          templateId: 3,
+          templateId: locale === "es" ? 3 : 5,
           templateData: {
             language: data.language,
           },
-          subject: "¡Mensaje recibido! ✅",
-          fromName: "Equipo Geniorama",
+          subject: locale === "es" ? "¡Mensaje recibido! ✅" : "¡Message received! ✅",
+          fromName: locale === "es" ? "Equipo Geniorama" : "Geniorama Team",
           fromEmail: "noreply@geniorama.co"
         })
       })
 
       if(!response.ok){
-        setError("Error sending email")
+        setError(locale === "es" ? "Error al enviar el correo" : "Error sending email")
         return
       }
 
-      setSuccess("The email has been send")
+      setSuccess(locale === "es" ? "El correo ha sido enviado" : "The email has been send")
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
@@ -161,7 +160,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!recaptchaValue) {
-      setError('Please verify that you are not a robot.')
+      setError(locale === "es" ? "Por favor, verifica que no eres un robot." : "Please verify that you are not a robot.")
       return;
     }
 
@@ -181,10 +180,10 @@ export default function ContactForm() {
         sendEmailTemplate(formData)
         sendWebhookData(formData);
       } else {
-        alert("Error en la verificación de reCAPTCHA.");
+        alert(locale === "es" ? "Error en la verificación de reCAPTCHA." : "Error in reCAPTCHA verification.");
       }
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
+      console.error(locale === "es" ? "Error al enviar el formulario:" : "Error sending form:", error);
     }
 
     resetData();

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
@@ -8,7 +9,9 @@ export async function POST(request: Request) {
       templateData, 
       subject, 
       fromName = "Geniorama Web",
-      fromEmail = "noreply@geniorama.co"
+      fromEmail = "noreply@geniorama.co",
+      html, // Para fallback SMTP
+      text // Para fallback SMTP
     } = await request.json();
 
     // Validar datos requeridos
@@ -19,55 +22,86 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configurar la petición a la API de Brevo
+    // Intentar primero con la API de Brevo
     const brevoApiKey = process.env.BREVO_API_KEY;
-    if (!brevoApiKey) {
-      return NextResponse.json(
-        { success: false, error: "API key de Brevo no configurada" },
-        { status: 500 }
-      );
+    if (brevoApiKey) {
+      try {
+        const emailData = {
+          to: Array.isArray(to) ? to : [{ email: to }],
+          templateId: parseInt(templateId),
+          params: templateData || {},
+          subject: subject,
+          sender: {
+            name: fromName,
+            email: fromEmail
+          }
+        };
+
+        const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'api-key': brevoApiKey
+          },
+          body: JSON.stringify(emailData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          return NextResponse.json({
+            success: true,
+            messageId: result.messageId,
+            data: result,
+            method: 'brevo_api'
+          });
+        } else {
+          console.warn("Error de Brevo API, intentando con SMTP:", result);
+          // Continuar con el fallback SMTP
+        }
+      } catch (apiError) {
+        console.warn("Error al conectar con Brevo API, intentando con SMTP:", apiError);
+        // Continuar con el fallback SMTP
+      }
     }
 
-    const emailData = {
-      to: Array.isArray(to) ? to : [{ email: to }],
-      templateId: parseInt(templateId),
-      params: templateData || {},
-      subject: subject,
-      sender: {
-        name: fromName,
-        email: fromEmail
-      }
-    };
-
-    // Enviar email usando la API de Brevo
-    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'api-key': brevoApiKey
+    // Fallback: Usar SMTP con nodemailer
+    console.log("Usando fallback SMTP...");
+    
+    const transporter = nodemailer.createTransport({
+      host: process.env.BREVO_SMTP_HOST,
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.BREVO_SMTP_USER,
+        pass: process.env.BREVO_SMTP_PASSWORD,
       },
-      body: JSON.stringify(emailData)
     });
 
-    const result = await response.json();
-
-    if (!response.ok) {
-      console.error("Error de Brevo API:", result);
+    // Para SMTP necesitamos HTML o texto
+    if (!html && !text) {
       return NextResponse.json(
         { 
           success: false, 
-          error: "Error al enviar el email con template",
-          details: result
+          error: "Para usar SMTP se requiere 'html' o 'text' en el body" 
         },
-        { status: response.status }
+        { status: 400 }
       );
     }
 
+    const info = await transporter.sendMail({
+      from: `"${fromName}" <${fromEmail}>`,
+      to,
+      subject,
+      text,
+      html,
+    });
+
     return NextResponse.json({
       success: true,
-      messageId: result.messageId,
-      data: result
+      messageId: info.messageId,
+      method: 'smtp_fallback'
     });
 
   } catch (error) {
