@@ -29,11 +29,15 @@ export async function POST(request: Request) {
     const brevoApiKey = process.env.BREVO_API_KEY;
     if (brevoApiKey) {
       try {
-        const recipients = Array.isArray(to) ? to : [{ email: to }];
+        // Normalizar destinatarios: si es string, convertirlo a array de objetos
+        const recipients = Array.isArray(to) 
+          ? to.map(email => ({ email }))
+          : [{ email: to }];
+        
         console.log("Destinatarios normalizados:", recipients);
 
         const emailData = {
-          to: recipients.map(email => ({ email })),
+          to: recipients,
           templateId: parseInt(templateId),
           params: templateData || {},
           subject: subject,
