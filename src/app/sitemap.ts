@@ -6,7 +6,7 @@ import { routing } from '@/i18n/routing'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // URLs base para cada idioma
   const baseUrls = routing.locales.map(locale => ({
-    url: `https://geniorama.com/${locale}`,
+    url: `https://geniorama.co/${locale}`,
     lastModified: new Date(),
     changeFrequency: 'daily' as const,
     priority: 1,
@@ -15,19 +15,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // URLs estáticas para cada idioma
   const staticRoutes = routing.locales.flatMap(locale => [
     {
-      url: `https://geniorama.com/${locale}/about`,
+      url: `https://geniorama.co/${locale}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `https://geniorama.com/${locale}/work`,
+      url: `https://geniorama.co/${locale}/work`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `https://geniorama.com/${locale}/contact`,
+      url: `https://geniorama.co/${locale}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // URLs dinámicas de proyectos para cada idioma
   const projectRoutes = routing.locales.flatMap(locale => 
     projects.map((project: any) => ({
-      url: `https://geniorama.com/${locale}/work/${project.slug.current}`,
+      url: `https://geniorama.co/${locale}/work/${project.slug.current}`,
       lastModified: new Date(project._updatedAt || new Date()),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
