@@ -4,6 +4,7 @@ import LinkProjectBasic from "@/components/LinkProject/LinkProjectBasic";
 // import { projects } from "@/sections/homepage/Work/Work";
 import type { ProjectType, CategoryType } from "@/types";
 import { useState, useEffect, useMemo } from "react";
+import { useLocale } from "next-intl";
 
 interface WorkPageProps {
   projects: ProjectType[]
@@ -13,6 +14,7 @@ interface WorkPageProps {
 export default function WorkPage({projects, categories}: WorkPageProps) {
   const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
+  const locale = useLocale()
 
   const categoryCounts = useMemo(() => {
     const counts: { [key: string]: number } = {};
@@ -51,7 +53,7 @@ export default function WorkPage({projects, categories}: WorkPageProps) {
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
-            Todos ({projects?.length || 0})
+            {locale === 'es' ? 'Todos' : 'All'} ({projects?.length || 0})
           </button>
           {categories.map((category) => (
             <button
