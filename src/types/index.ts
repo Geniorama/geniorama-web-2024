@@ -10,5 +10,20 @@ export interface ProjectType {
     language?: string,
     featured?: boolean,
     shortDescription?: string,
-    projectLink?: string
+    projectLink?: string,
+    category?: {
+        _id: string;
+        slug: {
+          current: string;
+        };
+      };
+}
+
+export interface CategoryType {
+    _id: string,
+    name: string,
+    slug: string,
+    description: string | null,
+    nameEs: string,
+    nameEn: string
 }
